@@ -229,15 +229,6 @@
 
           
           
-          <li>
-            <a href="/categories/">
-              
-              分类
-              
-              
-            </a>
-          </li>
-          
           
           
           <li>
@@ -251,12 +242,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              归档
+              分类
               
               
             </a>
@@ -268,6 +257,17 @@
             <a href="/tags/">
               
               标签
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
               
               
             </a>
@@ -395,7 +395,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">514</span> In Total
+              Words <span class="post-count">513</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -457,15 +457,18 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="初探设计模式"><a href="#初探设计模式" class="headerlink" title="初探设计模式"></a>初探设计模式</h1><p><strong>Hello 设计模式</strong> | <strong>Head First 设计模式 第一节</strong> </p>
+        <h1>初探设计模式</h1>
+<p><strong>Hello 设计模式</strong> | <strong>Head First 设计模式 第一节</strong></p>
 <hr>
 <blockquote>
 <p><strong>个人介绍</strong></p>
 </blockquote>
 <p>​        My name is CGJ , I’m a student .  Thank you for reading this notes.  —— 2021.12.05</p>
 <hr>
-<h3 id="关键词-策略模式-独立变化的部分-针对接口编程-多组合少继承"><a href="#关键词-策略模式-独立变化的部分-针对接口编程-多组合少继承" class="headerlink" title="关键词 :    策略模式 | 独立变化的部分 | 针对接口编程 | 多组合少继承"></a>关键词 :    策略模式 | 独立变化的部分 | 针对接口编程 | 多组合少继承</h3><hr>
-<h2 id="鸭子应用"><a href="#鸭子应用" class="headerlink" title="鸭子应用"></a>鸭子应用</h2><p><strong>问题描述：</strong> </p>
+<h3 id="关键词-策略模式-独立变化的部分-针对接口编程-多组合少继承">关键词 :    策略模式 | 独立变化的部分 | 针对接口编程 | 多组合少继承</h3>
+<hr>
+<h2 id="鸭子应用">鸭子应用</h2>
+<p><strong>问题描述：</strong></p>
 <ol>
 <li>游戏中的鸭子会 ( 游泳 叫) 并且有 (绿头鸭 红头鸭 橡皮鸭 木头鸭) 等</li>
 <li>要求原有基础上鸭子会飞</li>
@@ -475,42 +478,47 @@
 <li>有一个鸭子超类 其他鸭子继承了这个超类 分别实现超类的方法</li>
 <li>现在在超类上 补上了fly()这个方法</li>
 </ol>
-<p><strong>注释:</strong> </p>
+<p><strong>注释:</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># java超类意思就是父类（一般可以设计为抽象类也可以不是）</span></span><br><span class="line"><span class="comment"># 抽象类不能实例化对象，类的其它功能依然存在，成员变量、成员方法和构造方法的访问方式和普通类一样</span></span><br></pre></td></tr></table></figure>
 <p><strong>解决方案1问题:</strong></p>
-<ol>
+<ol start="2">
 <li>超类补充fly()后 所有子类不管能不能飞都会继承(例如 橡皮鸭 木头鸭也会飞)</li>
 </ol>
 <p><strong>解决方案2:</strong></p>
-<ol>
+<ol start="2">
 <li>改用接口 将 <strong>叫和飞</strong> 的行为 作为接口</li>
 </ol>
 <p><strong>解决方案2问题:</strong></p>
-<ol>
+<ol start="2">
 <li>要让所有的子类都去继承 很麻烦 要不断检测</li>
 </ol>
 <p><strong>解决方案3:(  将变化的部分独立出来  针对接口编程  )  能够指定鸭子的行为</strong></p>
-<ol>
-<li><p>将两个变化的动作 抽象为接口（ 针对接口编程 -&gt; 针对父类编程： 父类可以是接口也可以是类(抽象类也可以) ）</p>
+<ol start="2">
+<li>
+<p>将两个变化的动作 抽象为接口（ 针对接口编程 -&gt; 针对父类编程： 父类可以是接口也可以是类(抽象类也可以) ）</p>
 <p>这一点九例如体系结构老师说的 定义的时候要用父类 实现可以是子类 例如: Dad dad = new Son() 变量一定要是父类</p>
 </li>
-<li><p>然后将这个接口实现为对应的多个动作实现类</p>
+<li>
+<p>然后将这个接口实现为对应的多个动作实现类</p>
 </li>
-<li><p>父类里面的变化的动作是接口类的 然后子类里面 对各个接口实现对应的继承的子类实现</p>
+<li>
+<p>父类里面的变化的动作是接口类的 然后子类里面 对各个接口实现对应的继承的子类实现</p>
 </li>
 </ol>
-<p><img src="D:\Git\hexoNew\blog\source\img\designModel\image-20211206000733841.png" alt="image-20211206000733841"  /></p>
-<p><img src="D:\Git\hexoNew\blog\source\img\designModel\image-20211206000906483.png" alt="image-20211206000906483" style="zoom:50%;" /></p>
-<p><img src="D:\Git\hexoNew\blog\source\img\designModel\image-20211206000815647.png" alt="image-20211206000815647" style="zoom:50%;" /></p>
-<p><img src="D:\Git\hexoNew\blog\source\img\designModel\image-20211206000939132.png" alt="image-20211206000939132" style="zoom:50%;" /></p>
-<p><img src="D:\Git\hexoNew\blog\source\img\designModel\image-20211206000951335.png" alt="image-20211206000951335" style="zoom:50%;" /></p>
-<p><img src="D:\Git\hexoNew\blog\source\img\designModel\image-20211206001000509.png" alt="image-20211206001000509" style="zoom:50%;" /></p>
-<p><img src="D:\Git\hexoNew\blog\source\img\designModel\image-20211206001018275.png" alt="image-20211206001018275" style="zoom:50%;" /></p>
-<p><img src="D:\Git\hexoNew\blog\source\img\designModel\image-20211206001031536.png" alt="image-20211206001031536" style="zoom:50%;" /></p>
-<p><img src="D:\Git\hexoNew\blog\source\img\designModel\image-20211206001044531.png" alt="image-20211206001044531" style="zoom:50%;" /></p>
+<img src="..\..\img\designModel\image-20211206000733841.png" alt="image-20211206000733841"  />
+<img src="..\..\img\designModel\image-20211206000906483.png" alt="image-20211206000906483" style="zoom:50%;" />
+<img src="..\..\img\designModel\image-20211206000815647.png" alt="image-20211206000815647" style="zoom:50%;" />
+<img src="..\..\img\designModel\image-20211206000939132.png" alt="image-20211206000939132" style="zoom:50%;" />
+<img src="..\..\img\designModel\image-20211206000951335.png" alt="image-20211206000951335" style="zoom:50%;" />
+<img src="..\..\img\designModel\image-20211206001000509.png" alt="image-20211206001000509" style="zoom:50%;" />
+<img src="..\..\img\designModel\image-20211206001018275.png" alt="image-20211206001018275" style="zoom:50%;" />
+<img src="..\..\img\designModel\image-20211206001031536.png" alt="image-20211206001031536" style="zoom:50%;" />
+<img src="..\..\img\designModel\image-20211206001044531.png" alt="image-20211206001044531" style="zoom:50%;" />
 <hr>
-<p><strong>注释:</strong> </p>
-<p>1) 本篇是HeadFirst设计模式系列的第 1 篇    </p>
+<p><strong>注释:</strong></p>
+<ol>
+<li>本篇是HeadFirst设计模式系列的第 1 篇</li>
+</ol>
 <p>​                                                                                                                                                                      <strong>( <u>CGJer</u> | 乘光逐风 | @乘光君)</strong></p>
 
 
@@ -602,7 +610,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E5%88%9D%E6%8E%A2%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">初探设计模式</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%B3%E9%94%AE%E8%AF%8D-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E7%8B%AC%E7%AB%8B%E5%8F%98%E5%8C%96%E7%9A%84%E9%83%A8%E5%88%86-%E9%92%88%E5%AF%B9%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B-%E5%A4%9A%E7%BB%84%E5%90%88%E5%B0%91%E7%BB%A7%E6%89%BF"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">关键词 :    策略模式 | 独立变化的部分 | 针对接口编程 | 多组合少继承</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%B8%AD%E5%AD%90%E5%BA%94%E7%94%A8"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">鸭子应用</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">初探设计模式</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%B3%E9%94%AE%E8%AF%8D-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E7%8B%AC%E7%AB%8B%E5%8F%98%E5%8C%96%E7%9A%84%E9%83%A8%E5%88%86-%E9%92%88%E5%AF%B9%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B-%E5%A4%9A%E7%BB%84%E5%90%88%E5%B0%91%E7%BB%A7%E6%89%BF"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">关键词 :    策略模式 | 独立变化的部分 | 针对接口编程 | 多组合少继承</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%B8%AD%E5%AD%90%E5%BA%94%E7%94%A8"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">鸭子应用</span></a></li></ol></li></ol>
         
         </div>
       </aside>
